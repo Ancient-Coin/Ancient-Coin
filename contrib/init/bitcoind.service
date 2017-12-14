@@ -1,0 +1,22 @@
+[Unit]
+Description=Bitcoin's distributed currency daemon
+After=network.target
+
+[Service]
+User=bitcoin
+Group=bitcoin
+
+Type=forking
+PIDFile=/var/lib/bitcoind/ancicoind.pid
+ExecStart=/usr/bin/ancicoind -daemon -pid=/var/lib/bitcoind/ancicoind.pid \
+-conf=/etc/ancicoin/ancicoin.conf -datadir=/var/lib/ancicoind -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
