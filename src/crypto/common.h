@@ -141,3 +141,4 @@ int inline init_and_check_sodium()
 }
 
 #endif // BITCOIN_CRYPTO_COMMON_H
+
